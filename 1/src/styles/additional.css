@@ -1,0 +1,155 @@
+/* Additional styles to ensure proper loading of graphical elements */
+.planet {
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(111, 66, 193, 0.5);
+  overflow: hidden;
+  z-index: 1;
+  animation: pulse 3s infinite alternate;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(111, 66, 193, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(111, 66, 193, 0.7);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Ensure cards have proper styling */
+.card, .quest-card, .skill-card, .reflection-card {
+  background-color: var(--primary);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-2px);
+}
+
+/* Ensure proper loading of hero section */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Fix for star field animation */
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/* Ensure proper loading of icons */
+[class^="Fi"], [class*=" Fi"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Mobile responsiveness fixes */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 400px;
+  }
+  
+  .planet {
+    transform: scale(0.8);
+  }
+  
+  .orbit {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
